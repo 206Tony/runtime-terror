@@ -19,6 +19,17 @@ router.get('/drinks/:drinkid', (req, res) => {
     res.json(drink)
   })
 })
+
+// GET /drinks/drinkName
+// router.get('/drinks/:drinkName', (req, res) => {
+//   Drink.findOne(req.query.drinkName, (err, drink) => {
+//     if (err) res.json(err)
+//     res.json(drinks)
+//   })
+// })
+
+
+
 // POST /drinks -- create new drink
 // router.post('/drinks', (req, res) => {
 //   let drink = new Drink({ 
@@ -54,17 +65,21 @@ router.get('/drinks/:drinkid', (req, res) => {
 //   })
 // })
 
-// GET /users/:userid/drinks -- get drinks for one user -- WORKS
-router.get('/users/:userid/drinks', (req, res) => {
+
+
+//GET /users/:userid/drinks -- get drinks for one user -- WORKS
+router.get('/drinks', (req, res) => {
   User.findById(req.user._id).populate('drinks').exec((err, user) => {
     if (err) res.json(err)
     res.json(user)
   }) 
 })
 
+
+
 //GET /users/:userid/drinks/:drinkid -- WORKS
-// router.get('/users/:userid/drinks/:drinkid', (req, res) => {
-//   Drink.findById(req.user.drinkid, (err, drink) => {
+// router.get('/drinks/:drinkid', (req, res) => {
+//   Drink.findById(req.params.drinkid, (err, drink) => {
 //     if (err) res.json(err)
 //     res.json(drink)
 //   })
@@ -106,41 +121,44 @@ router.post('/drinks', (req, res) =>{
 // })
 
 //PUT /users/:userid/drinks/:drinkid -- update one drink for one user -- WORKS
-router.put('/users/:userid/drinks/:drinkid', (req, res) => {
-  User.findById(
-    req.params.userid,
-    (err, user) => {
-      Drink.findByIdAndUpdate (
-        req.params.drinkid,
-        {
-          drinkName: req.body.drinkName,
-          instructions: req.body.instructions,
-          ingredients: [
-            {
-              ingredient: req.body.ingredient,
-              measure: req.body.measure
-          }
-        ],
-        },
-        (err, drink) => {
-          if (err) res.json(err)
-          res.json(drink)
-        }
-      )
-    }
-  )
-})
+// router.put('/users/:userid/drinks/:drinkid', (req, res) => {
+//   User.findById(
+//     req.params.userid,
+//     (err, user) => {
+//       Drink.findByIdAndUpdate (
+//         req.params.drinkid,
+//         {
+//           drinkName: req.body.drinkName,
+//           instructions: req.body.instructions,
+//           ingredients: [
+//             {
+//               ingredient: req.body.ingredient,
+//               measure: req.body.measure
+//           }
+//         ],
+//         },
+//         (err, drink) => {
+//           if (err) res.json(err)
+//           res.json(drink)
+//         }
+//       )
+//     }
+//   )
+// })
+
 //DELETE /users/:userid/drinks/:drinkid -- detete one drink from one user -- WORKS
-router.delete('/users/:userid/drinks/:drinkid', (req, res) => {
-  User.findById(req.params.userid, (err, user) => {
+router.delete('/drinks/:drinkid', (req, res) => {
+  User.findById(req.user._id, (err, user) => {
     user.drinks.pull(req.params.drinkid)
     user.save(err => {
       if (err) res.json(err)
-      Drink.deleteOne({_id: req.params.drinkid}, err => {
-        if (err) res.json(err)
-        res.json(1)
+      // Drink.deleteOne({_id: req.body.drinkid}, err => {
+      //   if (err) res.json(err)
+        res.json(user)
       })
     })
   })
-})
+// })
+
 module.exports = router;
+
