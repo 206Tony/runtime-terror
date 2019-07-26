@@ -5,7 +5,9 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "seed": "node seeders/drinks.js",
+    "heroku-postbuild":"npm run seed && cd client && npm install --only=dev && npm install && npm run build"
   },
   "author": "Nina Gololdets",
   "license": "MIT",
