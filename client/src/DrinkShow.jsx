@@ -1,10 +1,11 @@
 import React from 'react';
+
 const DrinkShow = (props) => {
   const ingredients = props.drink.ingredients ? props.drink.ingredients: [];
   const ingredientItems = ingredients.map((ingredient, i) => {
     return(
     <p key={i}>
-      {ingredient. measure}
+      {ingredient.measure}
       {ingredient.ingredient}
     </p>
     )
@@ -28,7 +29,6 @@ const DrinkShow = (props) => {
         </div>
     </div>
     </>
-  )
-  
+  ) 
 }
 export default DrinkShow;

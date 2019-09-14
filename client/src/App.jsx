@@ -1,8 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import Filter from './Filter';
-import DrinkList from './DrinkList';
-// import Drinks from 'Drinks';
+//import Filter from './Filter';
 import './App.css';
 import DrinkShow from './DrinkShow';
 import DrinkAll from './DrinkAll';
@@ -16,7 +14,7 @@ import {
 
 import Login from './Login';
 import Signup from './Signup';
-import Favorite from './Favorite';
+//import Favorite from './Favorite';
 
 class App extends React.Component {
   constructor(props) {
@@ -175,46 +173,7 @@ handleFilterChange(e) {
     // console.log("user is: ",user)
     var contents = '';
     var current = this.state.current;
-    const dataCopy = Object.assign({}, this.state.apiData)
-    // var filteredDrinks = this.state.apiData.filter(data => {
-    //   return data.ingredients 
-    // })
-    // .map(ingredient => {
-    //   return data.ingredient
-    // })
-    //   return value.toLowerCase().includes(dataCopy.filterValue.toLowerCase())//ingredient === 'vodka'
-    //   //return fruit.toLowerCase().includes(this.state.filterValue.toLowerCase())
-    // })
-    // const filteredIngredients = filteredDrinks.map((drink, i) => {
-    //   return <p key={i}>{drink.attribute.ingredient}</p>
-    // }
-    //console.log("copied data: ", dataCopy)
-    // console.log("this is state", this.state);
-    //const listCopy = Array.from(this.state.apiData);
-    //const filteredList = listCopy.filter(drink => {
-      //return drink.toLowerCase().includes(this.state.filterValue.toLowerCase()) 
-    //})
-
-    // const newFilterApiData = {};
-    // function filterApiData(keys, obj)  {
-    //   for (let key in obj) {
-    //     if (keys.includes(key)) {
-    //       newFilterApiData[key] = obj[key];
-    //     }
-    //   }
-    //     return newFilterApiData;
-    //   // this.setState({
-    //   //   newFilterApiData
-    //   // })
-    // }
-
-    // function getSearchResult(filterBy, objList) {
-    //   return objList.highlights.filter(function(obj) {
-    //     return obj.queries.some(function(item) {
-    //       return item.indexOf(filterBy) >= 0
-    //     })
-    //   })
-    // }
+   
     
     if (user) {
       contents = (
@@ -258,17 +217,6 @@ handleFilterChange(e) {
                                               refreshUser={this.checkForLocalToken} 
                                               handleDetailsClick={this.handleDetailsClick} {...props} />}/>          
           </div>
-              {/* { {this.state.apiData && this.state.apiData.map(drink => (
-                <div className="drinklist" onClick={() => this.handleDetailsClick(drink._id)}>
-                  <img className='drinkImg' src={drink.picture} style={{display: "block"}} />
-                  <br />
-                  <Favorite  drink={this.state.current} token={this.state.token} refreshUser={this.state.refreshUser}/>
-                  <p style={{display: "block"}}> 
-                    {drink.drinkName}
-                  </p> 
-                </div>
-              ))} */}
-
         </>
       )
     } else {
@@ -291,3 +239,45 @@ handleFilterChange(e) {
 }
 
 export default App;
+
+
+ //const dataCopy = Object.assign({}, this.state.apiData)
+    // var filteredDrinks = this.state.apiData.filter(data => {
+    //   return data.ingredients 
+    // })
+    // .map(ingredient => {
+    //   return data.ingredient
+    // })
+    //   return value.toLowerCase().includes(dataCopy.filterValue.toLowerCase())//ingredient === 'vodka'
+    //   //return fruit.toLowerCase().includes(this.state.filterValue.toLowerCase())
+    // })
+    // const filteredIngredients = filteredDrinks.map((drink, i) => {
+    //   return <p key={i}>{drink.attribute.ingredient}</p>
+    // }
+    //console.log("copied data: ", dataCopy)
+    // console.log("this is state", this.state);
+    //const listCopy = Array.from(this.state.apiData);
+    //const filteredList = listCopy.filter(drink => {
+      //return drink.toLowerCase().includes(this.state.filterValue.toLowerCase()) 
+    //})
+
+    // const newFilterApiData = {};
+    // function filterApiData(keys, obj)  {
+    //   for (let key in obj) {
+    //     if (keys.includes(key)) {
+    //       newFilterApiData[key] = obj[key];
+    //     }
+    //   }
+    //     return newFilterApiData;
+    //   // this.setState({
+    //   //   newFilterApiData
+    //   // })
+    // }
+
+    // function getSearchResult(filterBy, objList) {
+    //   return objList.highlights.filter(function(obj) {
+    //     return obj.queries.some(function(item) {
+    //       return item.indexOf(filterBy) >= 0
+    //     })
+    //   })
+    // }

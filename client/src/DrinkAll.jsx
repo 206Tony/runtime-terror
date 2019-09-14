@@ -1,7 +1,6 @@
 import React from 'react';
 import Favorite from './Favorite';
 import { Link } from 'react-router-dom';
-import Favorite from './Favorite';
 
 export class DrinkAll extends React.Component {
   render() {

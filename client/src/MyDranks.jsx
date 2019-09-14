@@ -1,5 +1,4 @@
 import React from 'react';
-import Favorite from './Favorite';
 import Delete from './Delete';
 
 function MyDranks(props) {

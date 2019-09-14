@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
     "seed": "node seeders/drinks.js",
-    "heroku-postbuild":"npm run seed && cd client && npm install --only=dev && npm install && npm run build"
+    "heroku-postbuild": "npm run seed && cd client && npm install --only=dev && npm install && npm run build"
   },
   "author": "Nina Gololdets",
   "license": "MIT",
@@ -22,7 +22,8 @@
     "helmet": "^3.19.0",
     "jsonwebtoken": "^8.5.1",
     "method-override": "^3.0.0",
-    "mongoose": "^5.6.5",
-    "react-router": "^5.0.1"
+    "mongoose": "^5.6.11",
+    "react-router": "^5.0.1",
+    "react-router-dom": "^5.0.1"
   }
 }

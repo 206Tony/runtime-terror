@@ -5,7 +5,6 @@ const mongoose = require('mongoose');
 const expressJWT = require('express-jwt');
 const helmet = require('helmet');
 const RateLimit = require('express-rate-limit');
-//const methodOverride = require('method-override');
 
 const app = express();
 
