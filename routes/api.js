@@ -50,10 +50,10 @@ router.delete('/drinks/:drinkid', (req, res) => {
     user.drinks.pull(req.params.drinkid)
     user.save(err => {
       if (err) res.json(err)
-      Drink.deleteOne({_id: req.body.drinkid}, err => {
-        if (err) res.json(err)
+      // Drink.deleteOne({_id: req.body.drinkid}, err => {
+      //   if (err) res.json(err)
         res.json(user)
-      })
+      //})
     })
   })
 })
